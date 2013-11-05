@@ -1,12 +1,9 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$]{$documentclass$}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
 \usepackage{fixltx2e} % provides \textsubscript
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -15,9 +12,11 @@ $if(euro)$
   \usepackage{eurosym}
 $endif$
 \else % if luatex or xelatex
-  \usepackage{fontspec}
   \ifxetex
+    \usepackage{mathspec}
     \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
   \fi
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
   \newcommand{\euro}{€}
@@ -28,18 +27,20 @@ $if(sansfont)$
     \setsansfont{$sansfont$}
 $endif$
 $if(monofont)$
-    \setmonofont{$monofont$}
+    \setmonofont[Mapping=tex-ansi]{$monofont$}
 $endif$
 $if(mathfont)$
-    \setmathfont{$mathfont$}
+    \setmathfont(Digits,Latin,Greek){$mathfont$}
 $endif$
 \fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $if(natbib)$
 \usepackage{natbib}
-\bibliographystyle{plainnat}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
 $endif$
 $if(biblatex)$
 \usepackage{biblatex}
@@ -61,37 +62,28 @@ $if(verbatim-in-note)$
 $endif$
 $if(tables)$
 \usepackage{longtable}
-\let\oldlongtable\longtable
-
-\def\longtable{\tiny \oldlongtable}
-
 $endif$
-\usepackage{libertine}
-\usepackage{framed}
-\let\oldquote\quote
-\let\endoldquote\endquote
-\newcommand*\openquote{\makebox(25,-22){\scalebox{5}{\color{DarkGreen}``}}}
-\newcommand*\closequote{\makebox(25,-22){\scalebox{5}{\color{DarkGreen}''}}}
-\definecolor{verypalegreen}{RGB}{252,255,250}
-\colorlet{shadecolor}{verypalegreen}
-
-\makeatletter
-\def\shadequote{\begin{snugshade}\begin{oldquote}\openquote}
-\def\endshadequote{%
-  \closequote\end{oldquote}\end{snugshade}}
-\makeatother
-  
-\renewenvironment{quote}{\begin{shadequote}}{\end{shadequote}}
+$if(graphics)$
 \usepackage{graphicx}
-% We will generate all images so they have a width \maxwidth. This means
-% that they will get their normal width if they fit onto the page, but
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
 % are scaled down if they would overflow the margins.
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-\else\Gin@nat@width\fi}
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
 \makeatother
 \let\Oldincludegraphics\includegraphics
-\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+$endif$
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -104,6 +96,7 @@ $endif$
             pdfauthor={$author-meta$},
             pdftitle={$title-meta$},
             colorlinks=true,
+            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
             urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
             linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
             pdfborder={0 0 0}}
@@ -121,6 +114,7 @@ $endif$
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 $if(numbersections)$
+\setcounter{secnumdepth}{5}
 $else$
 \setcounter{secnumdepth}{0}
 $endif$
@@ -138,54 +132,17 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
-  
-\usepackage{lettrine} % Package to accentuate the first letter of the text  
-\usepackage{fix-cm}	 % Custom font sizes - used for the initial letter in the document
 
-\definecolor{uclmidgreen}{RGB}{130,141,55}
-
-\newcommand{\initial}[1]{ % Defines the command and style for the first letter
-\lettrine[lines=3,lhang=0.3,nindent=0em]{
-\color{DarkGreen}
-{\textsf{#1}}}{}}
-
-\usepackage{sectsty} % Enables custom section titles
-\sectionfont{\color{uclmidgreen} \usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
-\subsectionfont{\color{DarkSeaGreen} \usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
-
-\usepackage{titling} % Allows custom title configuration 
-\newcommand{\HorRule}{\color{DarkSeaGreen} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
-
-\pretitle{
-\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{20}{20} \usefont{OT1}{phv}{b}{n} \color{uclmidgreen} \selectfont} % Horizontal rule before the title
-
-\posttitle{\par\end{flushleft}\begin{flushleft}\fontsize{15}{15} \usefont{OT1}{phv}{b}{n} \color{Black} \selectfont $subtitle$ \end{flushleft}\vskip 0.5em} % Whitespace under the title and subtitle
-
-\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{uclmidgreen}} % Author font configuration
 $if(title)$
 \title{$title$}
 $endif$
-
-
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 \date{$date$}
 
-\postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name
-
-
-University College London% Your institution
-
-\par\end{flushleft}\HorRule} % Horizontal rule after the title
-      
-
-\usepackage{picture}
-\usepackage{eso-pic}
-
 \begin{document}
-  \AddToShipoutPicture{\put(0,\dimexpr\paperheight-1.8cm){%
-    \makebox[\paperwidth]{\Oldincludegraphics[width=\paperwidth,height=1.8cm]{bannermidgreen.pdf}}%
-  }}
-
 $if(title)$
 \maketitle
 $endif$

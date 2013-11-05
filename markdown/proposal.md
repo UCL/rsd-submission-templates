@@ -1,6 +1,9 @@
 % A Proposal for Important Work 
-% Prof. I. Principal, (PI, lecturer, Dept. Chemistry) Dr D. Post (Corresponding, d.post@ucl.ac.uk, RA, dept. Economics, Tel. 0203 549 0000) and G. Student (PhD Student, Pharmacology)
+% Prof. I. Principal, (Lecturer, Dept. Chemistry)[^2]; Dr D. Post (RA, dept. Economics)[^1] ; G. Student (PhD Student, Pharmacology)
 % December 2013
+
+[^1]:Corresponding, d.post@ucl.ac.uk,Tel. 0203 549 0000
+[^2]:Principal Investigator
 
 Abstract
 ========

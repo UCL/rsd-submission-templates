@@ -3,48 +3,23 @@
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
 \usepackage{fixltx2e} % provides \textsubscript
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[utf8]{inputenc}
 \else % if luatex or xelatex
-  \usepackage{fontspec}
   \ifxetex
+    \usepackage{mathspec}
     \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
   \fi
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
   \newcommand{\euro}{€}
 \fi
-\usepackage{libertine}
-\usepackage{framed}
-\let\oldquote\quote
-\let\endoldquote\endquote
-\newcommand*\openquote{\makebox(25,-22){\scalebox{5}{\color{DarkGreen}``}}}
-\newcommand*\closequote{\makebox(25,-22){\scalebox{5}{\color{DarkGreen}''}}}
-\definecolor{verypalegreen}{RGB}{252,255,250}
-\colorlet{shadecolor}{verypalegreen}
-
-\makeatletter
-\def\shadequote{\begin{snugshade}\begin{oldquote}\openquote}
-\def\endshadequote{%
-  \closequote\end{oldquote}\end{snugshade}}
-\makeatother
-  
-\renewenvironment{quote}{\begin{shadequote}}{\end{shadequote}}
-\usepackage{graphicx}
-% We will generate all images so they have a width \maxwidth. This means
-% that they will get their normal width if they fit onto the page, but
-% are scaled down if they would overflow the margins.
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-\else\Gin@nat@width\fi}
-\makeatother
-\let\Oldincludegraphics\includegraphics
-\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -54,9 +29,10 @@
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={Prof. I. Principal, (PI, lecturer, Dept. Chemistry) Dr D. Post (Corresponding, d.post@ucl.ac.uk, RA, dept. Economics, Tel. 0203 549 0000) and G. Student (PhD Student, Pharmacology)},
+            pdfauthor={Prof. I. Principal, (Lecturer, Dept. Chemistry); Dr D. Post (RA, dept. Economics); G. Student (PhD Student, Pharmacology)},
             pdftitle={A Proposal for Important Work},
             colorlinks=true,
+            citecolor=blue,
             urlcolor=blue,
             linkcolor=uclmidgreen,
             pdfborder={0 0 0}}
@@ -64,54 +40,16 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
-  
-\usepackage{lettrine} % Package to accentuate the first letter of the text  
-\usepackage{fix-cm}	 % Custom font sizes - used for the initial letter in the document
+\setcounter{secnumdepth}{5}
 
-\definecolor{uclmidgreen}{RGB}{130,141,55}
-
-\newcommand{\initial}[1]{ % Defines the command and style for the first letter
-\lettrine[lines=3,lhang=0.3,nindent=0em]{
-\color{DarkGreen}
-{\textsf{#1}}}{}}
-
-\usepackage{sectsty} % Enables custom section titles
-\sectionfont{\color{uclmidgreen} \usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
-\subsectionfont{\color{DarkSeaGreen} \usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
-
-\usepackage{titling} % Allows custom title configuration 
-\newcommand{\HorRule}{\color{DarkSeaGreen} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
-
-\pretitle{
-\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{20}{20} \usefont{OT1}{phv}{b}{n} \color{uclmidgreen} \selectfont} % Horizontal rule before the title
-
-\posttitle{\par\end{flushleft}\begin{flushleft}\fontsize{15}{15} \usefont{OT1}{phv}{b}{n} \color{Black} \selectfont Submission to the RSD Call for Projects \end{flushleft}\vskip 0.5em} % Whitespace under the title and subtitle
-
-\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{uclmidgreen}} % Author font configuration
 \title{A Proposal for Important Work}
-
-
-\author{Prof.~I. Principal, (PI, lecturer, Dept. Chemistry) Dr D. Post
-(Corresponding, d.post@ucl.ac.uk, RA, dept. Economics, Tel. 0203 549
-0000) and G. Student (PhD Student, Pharmacology)}
+\subtitle{Submission to the RSD Call for Projects}
+\author{Prof.~I. Principal, (Lecturer, Dept. Chemistry)\footnote{Principal
+  Investigator} \and Dr D. Post (RA, dept. Economics)\footnote{Corresponding,
+  d.post@ucl.ac.uk,Tel. 0203 549 0000} \and G. Student (PhD Student, Pharmacology)}
 \date{December 2013}
 
-\postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name
-
-
-University College London% Your institution
-
-\par\end{flushleft}\HorRule} % Horizontal rule after the title
-      
-
-\usepackage{picture}
-\usepackage{eso-pic}
-
 \begin{document}
-  \AddToShipoutPicture{\put(0,\dimexpr\paperheight-1.8cm){%
-    \makebox[\paperwidth]{\Oldincludegraphics[width=\paperwidth,height=1.8cm]{bannermidgreen.pdf}}%
-  }}
-
 \maketitle
 
 \section{Abstract}\label{abstract}
@@ -120,6 +58,9 @@ This should fit within the first page. It should cover the points you
 consider most important in judging your proposal. While shortlisting,
 the panel may read only this section. You should select points from
 amongst the later sections to emphasise here.
+
+Note that though you may find this template in word, latex, or markdown,
+you must submit your proposal as a PDF file.
 
 \pagebreak
 
