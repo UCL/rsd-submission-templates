@@ -1,0 +1,211 @@
+\documentclass[]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage{fixltx2e} % provides \textsubscript
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+\usepackage{longtable}
+\let\oldlongtable\longtable
+
+\def\longtable{\tiny \oldlongtable}
+
+\usepackage{libertine}
+\usepackage{framed}
+\let\oldquote\quote
+\let\endoldquote\endquote
+\newcommand*\openquote{\makebox(25,-22){\scalebox{5}{\color{DarkGreen}``}}}
+\newcommand*\closequote{\makebox(25,-22){\scalebox{5}{\color{DarkGreen}''}}}
+\definecolor{verypalegreen}{RGB}{252,255,250}
+\colorlet{shadecolor}{verypalegreen}
+
+\makeatletter
+\def\shadequote{\begin{snugshade}\begin{oldquote}\openquote}
+\def\endshadequote{%
+  \closequote\end{oldquote}\end{snugshade}}
+\makeatother
+  
+\renewenvironment{quote}{\begin{shadequote}}{\end{shadequote}}
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={A Scientist and A Scholar},
+            pdftitle={A Proposal for Important Work},
+            colorlinks=true,
+            urlcolor=blue,
+            linkcolor=uclmidgreen,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+  
+\usepackage{lettrine} % Package to accentuate the first letter of the text  
+\usepackage{fix-cm}	 % Custom font sizes - used for the initial letter in the document
+
+\definecolor{uclmidgreen}{RGB}{130,141,55}
+
+\newcommand{\initial}[1]{ % Defines the command and style for the first letter
+\lettrine[lines=3,lhang=0.3,nindent=0em]{
+\color{DarkGreen}
+{\textsf{#1}}}{}}
+
+\usepackage{sectsty} % Enables custom section titles
+\sectionfont{\color{uclmidgreen} \usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
+\subsectionfont{\color{DarkSeaGreen} \usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
+
+\usepackage{titling} % Allows custom title configuration 
+\newcommand{\HorRule}{\color{DarkSeaGreen} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
+
+\pretitle{
+\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{38}{38} \usefont{OT1}{phv}{b}{n} \color{uclmidgreen} \selectfont} % Horizontal rule before the title
+
+\posttitle{\par\end{flushleft}\begin{flushleft}\fontsize{35}{35} \usefont{OT1}{phv}{b}{n} \color{Black} \selectfont Submission to the RSD Call for Projects \end{flushleft}\vskip 0.5em} % Whitespace under the title and subtitle
+
+\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{uclmidgreen}} % Author font configuration
+\title{A Proposal for Important Work}
+
+
+\author{A Scientist and A Scholar}
+\date{December 2013}
+
+\postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name
+
+
+University College London% Your institution
+
+\par\end{flushleft}\HorRule} % Horizontal rule after the title
+      
+
+\usepackage{picture}
+\usepackage{eso-pic}
+
+\begin{document}
+  \AddToShipoutPicture{\put(0,\dimexpr\paperheight-1.8cm){%
+    \makebox[\paperwidth]{\Oldincludegraphics[width=\paperwidth,height=1.8cm]{bannermidgreen.pdf}}%
+  }}
+
+\maketitle
+
+This proposal should be funded.
+
+\section{A Section}\label{a-section}
+
+\subsection{A Subsection}\label{a-subsection}
+
+It was agreed\footnote{An inline footnote} that this is a great
+proposal.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  A List
+\item
+  A List
+\item
+  A List
+\item
+  A List
+\item
+  A List
+\item
+  A List
+\item
+  A List
+\item
+  A List
+\item
+  A List
+\end{enumerate}
+
+\subsection{Another subsection}\label{another-subsection}
+
+Somebody said
+
+\begin{quote}
+A quote A quote A quote A quote A quote A quote A quote A quote A quote
+A quote A quote A quote A quote A quote
+\end{quote}
+
+\section{Projects}\label{projects}
+
+\subsection{Project Summary}\label{project-summary}
+
+\subsubsection{A Subsubsection}\label{a-subsubsection}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Some bullets
+\item
+  Some bullets
+\item
+  Some bullets
+\end{itemize}
+
+\subsection{More content}\label{more-content}
+
+You can include \href{http://example.com}{hyperlinks}
+
+\subsection{Tables}\label{tables}
+
+\begin{longtable}[c]{@{}ll@{}}
+\hline\noalign{\medskip}
+Header 1 & Header 2
+\\\noalign{\medskip}
+\hline\noalign{\medskip}
+Content & Content
+\\\noalign{\medskip}
+\hline
+\noalign{\medskip}
+\caption{\label{Table} A Table}
+\end{longtable}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figure.png}
+\caption{\label{Figure} A figure}
+\end{figure}
+
+\subsection{Some more content}\label{some-more-content}
+
+You can cite papers {[}1{]}.
+
+\section{References}\label{references}
+
+1. Scientist A, Scholar T (2013) An example paper. The Journal of
+Interesting Work 134: 1--2. Available: \url{http://example.com/paper}.
+Accessed 01 January 2013.
+
+\end{document}

@@ -1,0 +1,27 @@
+#SConstruct file for generating templates for RSD call for projects submission
+import os
+
+pandoc_beamer=Builder(action='pandoc --bibliography bibliography.bib --csl plos.csl --template=proposal-template '+
+	'-V documentclass=scrartcl -V linkcolor="uclmidgreen" ' + 
+	'-V subtitle="Submission to the RSD Call for Projects" '+
+	'--number-sections $SOURCE -o $TARGET')
+
+env=Environment()
+env.Append(BUILDERS={'Pandoc':pandoc_beamer})
+
+latex=env.Pandoc('proposal.tex','../markdown/proposal.md')
+word=env.Pandoc('proposal.docx','../markdown/proposal.md')
+pdf=env.Pandoc('proposal.pdf','../markdown/proposal.md')
+
+banner=File('bannermidgreen.pdf')
+bibliography=File('bibliography.bib')
+figure=Glob("*.png")
+
+Depends([latex,pdf],['proposal-template.latex',banner])
+Depends(word,['proposal-template.docx'])
+Depends([word,pdf,latex],[figure,bibliography])
+
+env.Install('../latex/',[latex,figure,banner])
+env.Install('../word/',word)
+env.Install('../markdown',[figure])
+env.Alias('install', '..')
