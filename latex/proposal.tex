@@ -19,11 +19,6 @@
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
   \newcommand{\euro}{€}
 \fi
-\usepackage{longtable}
-\let\oldlongtable\longtable
-
-\def\longtable{\tiny \oldlongtable}
-
 \usepackage{libertine}
 \usepackage{framed}
 \let\oldquote\quote
@@ -59,7 +54,7 @@
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={A Scientist and A Scholar},
+            pdfauthor={Prof. I. Principal, (PI, lecturer, Dept. Chemistry) Dr D. Post (Corresponding, d.post@ucl.ac.uk, RA, dept. Economics, Tel. 0203 549 0000) and G. Student (PhD Student, Pharmacology)},
             pdftitle={A Proposal for Important Work},
             colorlinks=true,
             urlcolor=blue,
@@ -88,15 +83,17 @@
 \newcommand{\HorRule}{\color{DarkSeaGreen} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
 
 \pretitle{
-\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{38}{38} \usefont{OT1}{phv}{b}{n} \color{uclmidgreen} \selectfont} % Horizontal rule before the title
+\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{20}{20} \usefont{OT1}{phv}{b}{n} \color{uclmidgreen} \selectfont} % Horizontal rule before the title
 
-\posttitle{\par\end{flushleft}\begin{flushleft}\fontsize{35}{35} \usefont{OT1}{phv}{b}{n} \color{Black} \selectfont Submission to the RSD Call for Projects \end{flushleft}\vskip 0.5em} % Whitespace under the title and subtitle
+\posttitle{\par\end{flushleft}\begin{flushleft}\fontsize{15}{15} \usefont{OT1}{phv}{b}{n} \color{Black} \selectfont Submission to the RSD Call for Projects \end{flushleft}\vskip 0.5em} % Whitespace under the title and subtitle
 
 \preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{uclmidgreen}} % Author font configuration
 \title{A Proposal for Important Work}
 
 
-\author{A Scientist and A Scholar}
+\author{Prof.~I. Principal, (PI, lecturer, Dept. Chemistry) Dr D. Post
+(Corresponding, d.post@ucl.ac.uk, RA, dept. Economics, Tel. 0203 549
+0000) and G. Student (PhD Student, Pharmacology)}
 \date{December 2013}
 
 \postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name
@@ -117,92 +114,236 @@ University College London% Your institution
 
 \maketitle
 
-This proposal should be funded.
+\section{Abstract}\label{abstract}
 
-\section{A Section}\label{a-section}
+This should fit within the first page. It should cover the points you
+consider most important in judging your proposal. While shortlisting,
+the panel may read only this section. You should select points from
+amongst the later sections to emphasise here.
 
-\subsection{A Subsection}\label{a-subsection}
+\pagebreak
 
-It was agreed\footnote{An inline footnote} that this is a great
-proposal.
+\section{Introduction}\label{introduction}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  A List
-\item
-  A List
-\item
-  A List
-\item
-  A List
-\item
-  A List
-\item
-  A List
-\item
-  A List
-\item
-  A List
-\item
-  A List
-\end{enumerate}
-
-\subsection{Another subsection}\label{another-subsection}
-
-Somebody said
-
-\begin{quote}
-A quote A quote A quote A quote A quote A quote A quote A quote A quote
-A quote A quote A quote A quote A quote
-\end{quote}
-
-\section{Projects}\label{projects}
-
-\subsection{Project Summary}\label{project-summary}
-
-\subsubsection{A Subsubsection}\label{a-subsubsection}
+\subsection{Introduction to research
+area}\label{introduction-to-research-area}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  Some bullets
+  Assume a basic knowledge of the subject
 \item
-  Some bullets
+  As to a starting graduate student
 \item
-  Some bullets
+  Include key publications which can build a grounding in the field
+\item
+  Review the status of computational research in the area
+\item
+  References to any existing codes which complement or compete with the
+  code being proposed for effort
 \end{itemize}
 
-\subsection{More content}\label{more-content}
+\subsection{Introduction to research
+group}\label{introduction-to-research-group}
 
-You can include \href{http://example.com}{hyperlinks}
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Authors' track record in the field
+\item
+  Recent publications{[}1{]}
 
-\subsection{Tables}\label{tables}
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Including those that will help the team understand the code to be
+    worked on
+  \end{itemize}
+\item
+  Computational experience of group
 
-\begin{longtable}[c]{@{}ll@{}}
-\hline\noalign{\medskip}
-Header 1 & Header 2
-\\\noalign{\medskip}
-\hline\noalign{\medskip}
-Content & Content
-\\\noalign{\medskip}
-\hline
-\noalign{\medskip}
-\caption{\label{Table} A Table}
-\end{longtable}
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Software training levels, languages, and competencies of staff
+  \item
+    Existing processes and tools used for organizing software
+    development effort
+  \end{itemize}
+\end{itemize}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{figure.png}
-\caption{\label{Figure} A figure}
-\end{figure}
+\subsection{Introduction to code to be worked
+on}\label{introduction-to-code-to-be-worked-on}
 
-\subsection{Some more content}\label{some-more-content}
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  If a brand new code, envisaged answers can be given
+\item
+  Overview of code purpose and use
 
-You can cite papers {[}1{]}.
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    References to documentation or papers if available
+  \end{itemize}
+\item
+  High level description of code structure and design approaches
 
-\section{References}\label{references}
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Suitable to help someone first looking at the code base
+  \end{itemize}
+\item
+  Elements used, with references to web or research literature where
+  appropriate:
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Languages
+  \item
+    Libraries
+  \item
+    Techniques and methods
+  \item
+    Algorithms
+  \item
+    Build tools
+  \item
+    Testing and deployment tools
+  \end{itemize}
+\item
+  Important: provide \href{http://github.com/}{URL links} to existing
+  code or email as attachment
+\item
+  Engineering status of existing code, with impact on research
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Degree of testing
+  \item
+    Incidence of crash or wrong-answer bugs
+  \item
+    Performance issues
+  \item
+    Readability and structural soundness
+  \end{itemize}
+\end{itemize}
+
+\section{Suggested Objectives for The
+Project}\label{suggested-objectives-for-the-project}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Suggested objectives for the project
+\item
+  Organised by priority
+\item
+  All must be justified in terms of research needs and impact
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Why is this feature or improvement needed?
+  \item
+    What will be the outcomes for the research group, for UCL, and for
+    the field if this is implemented
+  \end{itemize}
+\item
+  Final objectives will be agreed in collaboration with the team if
+  selected
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Support for further requirements analysis will be provided as part
+    of the project
+  \item
+    Effort is provided on a defined-effort not defined-outcome basis
+  \end{itemize}
+\item
+  See
+  \href{http://development.rc.ucl.ac.uk/termly-call/examples.html}{example
+  suggested objectives}
+\end{itemize}
+
+\section{Impact of the project}\label{impact-of-the-project}
+
+\subsection{Potential for use of software beyond originating
+group}\label{potential-for-use-of-software-beyond-originating-group}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Development of software components, tools, insight or methods which
+  could be of benefit to other research projects
+\item
+  Potential for receipt of otherwise unavailable research funding
+\item
+  Prevention of software falling into disuse or being forgotten
+\item
+  Development of skills within research group
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Transfer of software engineering knowledge to active
+    computationally-focused PhD students and postdocs
+  \end{itemize}
+\item
+  Unlocking potential for further development of code beyond engagement
+\end{itemize}
+
+\subsection{Sustainability of the
+project}\label{sustainability-of-the-project}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  How will the work project be maintained after RSDT free involvement
+  ceases?
+\item
+  If by group staff, show that the group has the skills to maintain the
+  code, or how these skills will be acquired (possibly with RSDT help).
+\item
+  If through subsequent paid work by RSDT, specify where resources will
+  come from, either through existing funds or future grant applications.
+\end{itemize}
+
+\section{Justification for
+application}\label{justification-for-application}
+
+\subsection{Justification for use of RSDT
+staff}\label{justification-for-use-of-rsdt-staff}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  See appropriateness section in
+  \href{http://development.rc.ucl.ac.uk/termly-call/selection.html}{selection
+  criteria}
+\item
+  Why are research software developers required as opposed to general
+  programmers?
+\item
+  Why can't existing research staff do this?
+\end{itemize}
+
+\subsection{Justification for use of free
+project}\label{justification-for-use-of-free-project}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Existing chances of receiving funding for software development from
+  other sources
+\item
+  Impact of project on those chances
+\end{itemize}
 
 1. Scientist A, Scholar T (2013) An example paper. The Journal of
 Interesting Work 134: 1--2. Available: \url{http://example.com/paper}.

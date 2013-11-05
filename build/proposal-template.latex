@@ -157,9 +157,9 @@ $endfor$
 \newcommand{\HorRule}{\color{DarkSeaGreen} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
 
 \pretitle{
-\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{38}{38} \usefont{OT1}{phv}{b}{n} \color{uclmidgreen} \selectfont} % Horizontal rule before the title
+\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{20}{20} \usefont{OT1}{phv}{b}{n} \color{uclmidgreen} \selectfont} % Horizontal rule before the title
 
-\posttitle{\par\end{flushleft}\begin{flushleft}\fontsize{35}{35} \usefont{OT1}{phv}{b}{n} \color{Black} \selectfont $subtitle$ \end{flushleft}\vskip 0.5em} % Whitespace under the title and subtitle
+\posttitle{\par\end{flushleft}\begin{flushleft}\fontsize{15}{15} \usefont{OT1}{phv}{b}{n} \color{Black} \selectfont $subtitle$ \end{flushleft}\vskip 0.5em} % Whitespace under the title and subtitle
 
 \preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{uclmidgreen}} % Author font configuration
 $if(title)$
