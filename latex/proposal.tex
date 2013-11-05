@@ -20,6 +20,25 @@
 \fi
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -173,6 +192,12 @@ on}\label{introduction-to-code-to-be-worked-on}
     Readability and structural soundness
   \end{itemize}
 \end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figure.png}
+\caption{\label{Figure} Figures may help}
+\end{figure}
 
 \section{Suggested Objectives for The
 Project}\label{suggested-objectives-for-the-project}

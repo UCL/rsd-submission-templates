@@ -58,7 +58,9 @@ Introduction to code to be worked on
     * Degree of testing
     * Incidence of crash or wrong-answer bugs 
     * Performance issues
-    * Readability and structural soundness 
+    * Readability and structural soundness
+
+![ \label{Figure} Figures may help](figure.png)
 
 Suggested Objectives for The Project
 ====================================
